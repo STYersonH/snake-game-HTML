@@ -68,6 +68,9 @@ function reiniciar() {
 		casilla.classList.remove("snake-head");
 	}
 
+	// reiniciar score
+	document.getElementById("score-value").innerHTML = 0;
+
 	snake = new Snake();
 	intervalId = setInterval(() => {
 		snake.moverse();
@@ -81,14 +84,15 @@ function finalizar_juego() {
 
 	document.getElementById("game-over").style.display = "flex";
 	document.getElementById("canva-dark").style.display = "flex";
+	// mostrar score
+	document.getElementById("game-over_score-value").innerHTML = snake.score;
 
 	snake.stateGame = "gameover";
 }
 
 function actualizar_score() {
-	console.log("actualizar score");
 	const score = document.getElementById("score-value");
-	score.innerHTML = snake.body.length - 3;
+	score.innerHTML = snake.score;
 }
 
 class Snake {
@@ -98,6 +102,7 @@ class Snake {
 		this.head = this.obtener_posicion_cabeza();
 		this.direction = "right";
 		this.celda_de_comida = this.generar_comida();
+		this.score = 0;
 		//this.pintar_celda(this.celda_de_comida, "red");
 		this.pintar_snake();
 	}
@@ -155,7 +160,8 @@ class Snake {
 			this.celda_de_comida = this.generar_comida();
 			//this.pintar_celda(this.celda_de_comida, "red");
 
-			console.log(" acaba de comer");
+			// actualizar score
+			this.score += 1;
 			actualizar_score();
 		}
 	}
