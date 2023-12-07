@@ -3,7 +3,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: sans-serif;
 
@@ -17,6 +17,9 @@ body {
 
   width: 100%;
   height: 100%;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .canva-dark {
@@ -29,6 +32,9 @@ body {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.9); /* semi-transparent black */
+
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 /* GAME OVER */
@@ -96,7 +102,7 @@ body {
   }
 
   .game-over__instrucciones {
-  display: none;
+    display: none;
   }
 }
 
@@ -153,6 +159,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   background-color: #568A34;
 }
@@ -164,8 +171,6 @@ body {
   display: grid;
   grid-template-columns: repeat(19, 1fr);
 
-  margin-bottom: 50px;
-  margin-top: 50px;
 
   /* dar border */
   border: 30px solid rgb(94, 56, 27);
@@ -198,6 +203,9 @@ body {
     padding: 10px;
 
     grid-template-columns: repeat(19, minmax(5%, 1fr));
+  
+    border: none;
+  
   }
   .casilla {
     aspect-ratio: 1 / 1; /* Make the height equal to the width */
@@ -262,12 +270,12 @@ body {
     align-items: center;
     justify-content: center;
 
-    background-color: #4A752C;
+    background-color: #568A34;
   }
 
   .game-buttons button {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
 
     display: flex;
@@ -277,7 +285,7 @@ body {
 
   .botones-costados {
     display: flex;
-    gap: 40px;
+    gap: 60px;
   }
 
   svg {
